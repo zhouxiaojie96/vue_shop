@@ -1,36 +1,26 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-11-20 11:22:45
+ * @LastEditTime: 2019-11-23 12:33:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue_shop\src\App.vue
+ -->
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
+  <transition name="app">
+    <div id="app">
+      <!-- 路由占位符 -->
+      <router-view></router-view>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  </transition>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app'
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped>
+
+</style>>
