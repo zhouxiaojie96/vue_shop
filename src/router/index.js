@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-11-23 10:55:14
+ * @LastEditTime: 2019-11-25 15:17:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
@@ -10,6 +10,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import Welcome from '../views/Welcome.vue'
+import Users from '../views/user/Users.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +26,18 @@ const routes = [
   },
   {
     path : "/home",
-    component : Home
+    component : Home,
+    redirect : "/Welcome",
+    children:[
+      {
+        path : "/Welcome",
+        component : Welcome
+      },
+      {
+        path : "/users",
+        component : Users
+      }
+    ]
   }
 ]
 
