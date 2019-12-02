@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-25 14:54:37
- * @LastEditTime: 2019-11-26 17:54:38
+ * @LastEditTime: 2019-11-28 11:04:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\user\Users.vue
@@ -18,7 +18,7 @@
     <!-- 卡片试图区 -->
     <el-card>
       <!-- 搜索与添加区域 -->
-      <!-- el-row 是 element 的栅格，相当于 bootstrap 的 row 类， 里面的 :gutter='20' 里面列之间相差的距离 -->
+      <!-- el-row 是 element 的栅格，相当于 bootstrap 的 row 类， 里面的 :gutter='20' 是列和列之间相差的距离 -->
       <el-row :gutter="20">
         <!-- el-col 是 element 的栅格，相当于 bootstrap 的 col-md-* 类， 里面的 :span='10' 是占几个格数，一共有24个格数。-->
         <el-col :span="10">
@@ -33,6 +33,7 @@
       </el-row>
 
       <!-- 用户列表区 -->
+      <!-- border 是添加表格的边框  stripe 是添加隔行变色-->
       <el-table :data="userList" border stripe>
         <el-table-column type="index"></el-table-column>
         <el-table-column label="姓名" prop="username"></el-table-column>
@@ -56,8 +57,9 @@
             <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeUserById(scope.row.id)">
             </el-button>
             <!-- 分配角色按钮 -->
+            <!-- el-tooltip 是悬浮到按钮上就会有提示文字的作用 effect 用来设置颜色， content 用来设置提示内容， placement 用来设置提示在那个方向， :enterable='false' 作用是当鼠标悬浮到提示文字上要不要继续显示 -->
             <el-tooltip effect="dark" content="分配角色" placement="top" :enterable="false">
-              <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
+              <el-button type="warning" icon="el-icon-setting" size="mini" @click="setRole(scope.row)"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -113,6 +115,28 @@
           <el-button type="primary" @click="editUserInfo">确 定</el-button>
         </span>
       </el-dialog>
+
+      <!-- 分配角色对话框 -->
+      <el-dialog title="分配角色" :visible.sync="setRoleDialogVisible" width="50%" @close="setRoleDialogClosed">
+        <div>
+          <p>当前的用户：{{userInfo.username}}</p>
+          <p>当前的角色：{{userInfo.role_name}}</p>
+          <p>分配新的角色：
+            <!-- 下拉菜单 v-model 绑定的是选中之后的值 -->
+            <el-select v-model="selectedRoleId" placeholder="请选择">
+              <!-- :label 绑定的是option显示的内容 :value 绑定的是option隐式内容 -->
+              <el-option v-for="item in rolesList" :key="item.id" :label="item.roleName" :value="item.id">
+              </el-option>
+            </el-select>
+          </p>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="setRoleDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="saveRoleInfo">确 定</el-button>
+        </span>
+      </el-dialog>
+
+      
     </el-card>
   </div>
 </template>
@@ -180,7 +204,17 @@ export default {
           //自定义规则第二部：在这里使用 validator 是用来指定那个验证规则，trigger是用来指定什么时候触发验证时机
           { validator: checkMobile, trigger: 'blur' }
         ]
-      }
+      },
+      //控制分配角色的对话框的显示与隐藏
+      setRoleDialogVisible: false,
+      //需要被分配用户角色的用户信息
+      userInfo: {},
+      //所有角色列表
+      rolesList: [],
+      //分配角色时已选中的角色id值
+      selectedRoleId: '',
+      
+      
     }
     //自定义规则 一：定义规则
     //1.验证规则。2.需要验证的值。3.回调函数，只要验证通过了就可以在箭头函数中直接调cb就代表验证通过，如果验证不通过在调用cb的同时必须提供一个error对象，error对象里的字符串就是错误提示消息。
@@ -295,23 +329,48 @@ export default {
     //根据id删除对应的用户
     async removeUserById(id) {
       const confirmResult = await this.$confirm(
-          "此操作将永久删除该用户，是否继续？",
-          "提示",
-          {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'//提示图标
-          }
-      ).catch(err => err)//简写前：.catch(err => { return err } )。如果函数体中只有一行代码可以简写把{}去掉，{}去掉了 return 也要去掉。
+        '此操作将永久删除该用户，是否继续？',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning' //提示图标
+        }
+      ).catch(err => err) //简写前：.catch(err => { return err } )。如果函数体中只有一行代码可以简写把{}去掉，{}去掉了 return 也要去掉。
       //如果用户确认删除，则返回字符串"confirm"
       //如果用户取消删除，则返回字符串"cancel"
       //判断用户是否删除
-      if(confirmResult !== "confirm") return this.$message.info("已经取消删除")
+      if (confirmResult !== 'confirm') return this.$message.info('已经取消删除')
       //确认了删除
-      const {data:res} = await this.$http.delete(`users/${id}`)
-      if(res.meta.status !== 200) return this.$message.error("删除失败")
-      this.$message.success("删除成功！");
-
+      const { data: res } = await this.$http.delete(`users/${id}`)
+      if (res.meta.status !== 200) return this.$message.error('删除失败')
+      this.$message.success('删除成功！')
+    },
+    async setRole(userInfo) {
+      this.userInfo = userInfo //赋值当前分配角色的用户信息
+      //获取到所有角色
+      const { data: res } = await this.$http.get('roles')
+      if (res.meta.status !== 200)
+        return this.$message.error('获取角色列表失败')
+      this.rolesList = res.data //获取到的所有角色列表存放到data中。
+      this.setRoleDialogVisible = true
+    },
+    //点击按钮分配角色
+    async saveRoleInfo() {
+      if (!this.selectedRoleId) return this.$message.error('请选择新的角色')
+      const { data: res } = await this.$http.put(
+        `users/${this.userInfo.id}/role`,
+        { rid: this.selectedRoleId }
+      )
+      if (res.meta.status !== 200) return this.$message.error('更新角色失败')
+      this.$message.success('更新角色成功!')
+      this.getUserList()
+      this.setRoleDialogVisible = false //关闭对话框
+    },
+    //监听分配角色对话框的关闭事件
+    setRoleDialogClosed() {
+      this.selectedRoleId = ''
+      this.userInfo = {}
     }
   },
   created() {

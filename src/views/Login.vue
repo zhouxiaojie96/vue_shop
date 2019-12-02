@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-20 19:31:40
- * @LastEditTime: 2019-11-26 12:33:26
+ * @LastEditTime: 2019-11-28 11:57:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\Login.vue
@@ -16,13 +16,13 @@
         </div>
         <!-- 登录表单区 -->
         <!-- model是绑定的表单数据 -->
-        <!-- rules 是验证规则 -->
-        <!-- ref用于清空表单数据时的表单对象  （是表单的引用对象） -->
+        <!-- rules 是校验规则 -->
+        <!-- ref是表单的引用对象  （用于清空表单数据时的表单对象 -->
         <el-form class="login_form" :model="loginForm" :rules="loginFormRules" ref="loginFormRef">
           <!-- 用户名 -->
-          <!-- prop是验证规则，在父标签的 :rules的值中定义 -->
+          <!-- prop 是 loginFormRules 内具体的校验规则-->
           <el-form-item prop="username">
-            <!-- v-model绑定的数据是在父标签的 :model绑定的表单数据对象里 -->
+            <!-- v-model绑定的数据是在父标签的 :model绑定的表单数据对象 loginForm 里的属性 -->
             <el-input prefix-icon="el-icon-s-custom" v-model="loginForm.username"></el-input>
           </el-form-item>
           <!-- 密码 -->
@@ -49,8 +49,8 @@ export default {
         username: 'admin',
         password: '123456'
       },
+      //这是表单的验证规则对象
       loginFormRules: {
-        //这是表单的验证规则对象
         username: [
           //用户名校验规则
           // required代表是必填，message是提示消息，trigger是触发时机，当失去焦点时触发
@@ -70,6 +70,7 @@ export default {
     resetLoginForm() {
       this.$refs.loginFormRef.resetFields()//对整个表单进行重置，将所有字段值重置为初始值并移除校验结果。
     },
+    //登录
     login() {
       //判断是否符合校验规则。
       //validate是一个回调函数，判断校验规则是否合法，如果合法就返回true,如果不合法就返回false 返回的第一个值valid是一个布尔值。箭头函数只有一个参数默认可以去掉小括号。

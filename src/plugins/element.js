@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:28:16
- * @LastEditTime: 2019-11-26 16:53:13
+ * @LastEditTime: 2019-11-27 18:02:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\plugins\element.js
@@ -51,6 +51,14 @@ import {
   Dialog,
   //带提示弹框
   MessageBox,
+  //tag标签
+  Tag,
+  //树形组件
+  Tree,
+  //下拉菜单
+  Select,
+  Option,
+  
 } from 'element-ui'
 
 Vue.use(Button)
@@ -75,6 +83,10 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.prototype.$message = Message; //把Message弹框组件挂载到Vue的原型对象上，这样每个组件都可以通过this.$message访问到Message来进行弹框提示。
 Vue.prototype.$confirm = MessageBox.confirm;//把带提问的弹框组件挂载到Vue的原型对象上。
