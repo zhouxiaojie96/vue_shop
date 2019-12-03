@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-11-26 19:51:33
+ * @LastEditTime: 2019-12-03 18:35:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
@@ -14,6 +14,7 @@ import Welcome from '../views/Welcome.vue'
 import Users from '../views/user/Users.vue'
 import Rights from '../views/power/Rights.vue'
 import Roles from '../views/power/Roles.vue'
+import Categories from '../views/goods/Cate.vue'
 
 
 Vue.use(VueRouter)
@@ -27,6 +28,7 @@ const routes = [
       { path : "/users" , component : Users },
       { path : "/rights" , component : Rights },
       { path : "/roles" , component : Roles },
+      { path : '/categories' , component : Categories },
       
     ]
   }
