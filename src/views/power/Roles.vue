@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-26 19:50:30
- * @LastEditTime: 2019-11-28 13:58:54
+ * @LastEditTime: 2019-12-05 12:34:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\power\Roles.vue
@@ -12,7 +12,7 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/roles' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-      <el-breadcrumb-item>角色列表12</el-breadcrumb-item>
+      <el-breadcrumb-item>角色列表</el-breadcrumb-item>
     </el-breadcrumb>
 
     <!-- 卡片视图 -->
@@ -179,7 +179,7 @@ export default {
       this.rolelist = res.data
     },
     //根据id删除对应的权限
-    async removeRightById(role, rightId) {
+    async removeRightById(scope, rightId) {
       const confirmResult = await this.$confirm(
         '此操作将永久删除该权限, 是否继续?',
         '提示',
@@ -191,11 +191,11 @@ export default {
       ).catch(err => err)
       if (confirmResult !== 'confirm') return this.$message.info('取消了删除')
       const { data: res } = await this.$http.delete(
-        `roles/${role.id}/rights/${rightId}`
+        `roles/${scope.id}/rights/${rightId}`
       )
       if (res.meta.status !== 200) return this.$message.error('删除失败')
       this.$message.success('删除成功')
-      role.children = res.data //执行完异步之后返回的data包含了删除完之后的所有最新的权限数据，然后从新赋下值就可以了。这样避免页面刷新。
+      scope.children = res.data //执行完异步之后返回的data包含了删除完之后的所有最新的权限数据，然后从新赋下值就可以了。这样避免页面刷新。
     },
     //展示分配权限的对话框
     async showSetRightDialog(role) {
@@ -208,7 +208,7 @@ export default {
       this.getLeafKeys(role, this.defKeys) //递归获取三级节点的id。
       this.setRightDialogVisible = true
     },
-    //通过递归的方式获取角色下所有三级权限的id，并保存到 defKeys 数组中  其中 node 是当前用户所有的数据，arr 是要存放三级id的数组。
+    //通过递归的方式获取角色下所有三级权限的id，并保存到 defKeys 数组中  其中 node 是当前用户所有的数据就是role 也就是scope.row数据，arr 是要存放三级id的数组。
     getLeafKeys(node, arr) {
       //如果当前 node 节点不包含 children 属性则是三级节点
       if (!node.children) return arr.push(node.id)
