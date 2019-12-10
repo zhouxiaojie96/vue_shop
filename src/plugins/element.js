@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:28:16
- * @LastEditTime: 2019-12-04 12:27:24
+ * @LastEditTime: 2019-12-06 15:05:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\plugins\element.js
@@ -60,7 +60,11 @@ import {
   Option,
   //级联选择器
   Cascader,
-  
+  //警告提示
+  Alert,
+  //tabs 切换
+  Tabs,
+  TabPane,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -90,7 +94,11 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
+  
 
 Vue.prototype.$message = Message; //把Message弹框组件挂载到Vue的原型对象上，这样每个组件都可以通过this.$message访问到Message来进行弹框提示。
 Vue.prototype.$confirm = MessageBox.confirm;//把带提问的弹框组件挂载到Vue的原型对象上。

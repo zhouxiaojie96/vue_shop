@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-25 14:54:37
- * @LastEditTime: 2019-11-28 11:04:33
+ * @LastEditTime: 2019-12-07 12:48:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\user\Users.vue
@@ -33,6 +33,7 @@
       </el-row>
 
       <!-- 用户列表区 -->
+      <!-- 这里的table 用的 elementui 的 table表格 -->
       <!-- border 是添加表格的边框  stripe 是添加隔行变色-->
       <el-table :data="userList" border stripe>
         <el-table-column type="index"></el-table-column>
