@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-06 14:15:25
- * @LastEditTime: 2019-12-10 10:35:42
+ * @LastEditTime: 2019-12-10 21:02:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\goods\Params.vue
@@ -27,7 +27,7 @@
         </el-col>
       </el-row>
       <!-- tabs 标签 -->
-      <!-- v-model 动态绑定的是当前 tab-pane 标签 的 name 值，@tab-click 是当前选中的标签发生改变时触发的函数 -->
+      <!-- v-model 动态绑定的是当前 el-tab-pane 标签 的 name 值，@tab-click 是当前选中的标签发生改变时触发的函数 -->
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <!-- label 绑定的是当前标签的 头部切换标题 ，name 绑定的是 tabs 标签动态绑定的值 -->
         <!-- 添加动态参数的面板 -->
@@ -180,7 +180,7 @@ export default {
       //     item.attr_vals = item.attr_vals.split(' ')
       // })
       //这是用了三元表达式之后的
-      //这里有一个判断，如果当前数组不为空就按空格分割，如果是空的就返回一个空数组
+      //这里有一个判断，如果当前 item.attr_vals 是空字符串就返回空数组，如果不是空字符串就按空格进行分割返回一个数组。然后给 item.attr_vals 从新赋值
       //避免了如果 attr_vals 里面没有内容还渲染tag标签
       res.data.forEach(item => {
         item.attr_vals = item.attr_vals ? item.attr_vals.split(' ') : []
