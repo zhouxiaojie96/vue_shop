@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:28:16
- * @LastEditTime: 2019-12-06 15:05:55
+ * @LastEditTime: 2019-12-10 22:44:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\plugins\element.js
@@ -65,6 +65,14 @@ import {
   //tabs 切换
   Tabs,
   TabPane,
+  //步骤条
+  Steps,
+  Step,
+  //多选框
+  CheckboxGroup,
+  Checkbox,
+  //图片上传
+  Upload,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -97,6 +105,11 @@ Vue.use(Cascader)
 Vue.use(Alert)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(CheckboxGroup)
+Vue.use(Checkbox)
+Vue.use(Upload)
 
   
 
