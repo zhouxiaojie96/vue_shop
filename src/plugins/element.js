@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:28:16
- * @LastEditTime: 2019-12-10 22:44:32
+ * @LastEditTime: 2019-12-11 22:04:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\plugins\element.js
@@ -73,6 +73,9 @@ import {
   Checkbox,
   //图片上传
   Upload,
+  //时间线
+  Timeline,
+  TimelineItem,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -110,6 +113,8 @@ Vue.use(Step)
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 
   
 
