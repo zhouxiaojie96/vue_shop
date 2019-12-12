@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-12-11 17:22:17
+ * @LastEditTime: 2019-12-11 22:30:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
@@ -19,6 +19,7 @@ import Params from '../views/goods/Params.vue'
 import List from '../views/goods/List.vue'
 import Add from '../views/goods/Add.vue'
 import Order from '../views/order/Order.vue'
+import Report from '../views/report/Report.vue';
 
 
 Vue.use(VueRouter)
@@ -37,6 +38,7 @@ const routes = [
       { path : '/goods' , component : List },
       { path : '/goods/add' , component : Add },
       { path : '/orders' , component : Order },
+      { path : '/reports' , component : Report },
     ]
   }
 ]
