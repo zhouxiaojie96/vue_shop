@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-03 18:33:27
- * @LastEditTime: 2019-12-05 22:03:13
+ * @LastEditTime: 2019-12-07 12:47:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\goods\Cate.vue
@@ -26,6 +26,7 @@
       </el-row>
 
       <!-- 表格区域 -->
+      <!-- 这里的表格用的是 vue-table-with-tree-grid treeTable 表格 -->
       <!-- :data 是表格的数据源，:columns 是表格各列配置，:selection 是否为多选表格类型，:expand-type 是否为展开行类型表格 -->
       <!-- show-index 是否为索引列，index-text = "#" 数据索引列名称，border 是否显示纵向边框 -->
       <tree-table class="treetable" :data="catelist" :columns="columns" :selection-type='false' :expand-type="false"

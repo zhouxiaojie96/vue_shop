@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-26 19:00:24
- * @LastEditTime: 2019-11-26 20:02:01
+ * @LastEditTime: 2019-12-07 12:48:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\power\Rights.vue
@@ -17,6 +17,7 @@
         <!-- 卡片视图 -->
         <el-card class="box-card">
             <!-- table表格 -->
+            <!-- 这里的table 用的 elementui 的 table表格 -->
             <el-table :data="rightstList" border stripe>
                 <el-table-column type="index"></el-table-column>
                 <el-table-column label="权限姓名" prop="authName"></el-table-column>

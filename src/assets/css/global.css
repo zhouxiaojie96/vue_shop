@@ -37,4 +37,14 @@ html,body,#app{
 .el-scrollbar__wrap{
     height: 204px;
 }
-
+.el-steps{
+    margin: 20px 0;
+}
+.el-step__title{
+    font-size: 13px;
+}
+/* 富文本编辑器 */
+quill-editor{
+    /* 最小高度是300px */
+    min-height: 300px;
+}

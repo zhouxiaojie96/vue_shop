@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-26 19:50:30
- * @LastEditTime: 2019-12-05 12:34:09
+ * @LastEditTime: 2019-12-07 12:48:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\power\Roles.vue
@@ -25,6 +25,7 @@
       </el-row>
 
       <!-- table表格 -->
+      <!-- 这里的table 用的 elementui 的 table表格 -->
       <el-table :data="rolelist" border stripe>
         <!-- 展开列 -->
         <el-table-column type="expand">
