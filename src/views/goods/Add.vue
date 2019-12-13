@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-10 14:49:30
- * @LastEditTime: 2019-12-11 16:30:46
+ * @LastEditTime: 2019-12-12 14:18:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\goods\Add.vue
@@ -166,7 +166,6 @@ export default {
       if (res.meta.status !== 200)
         return this.$message.error('获取商品分类数据失败')
       this.cateList = res.data
-      console.log(this.cateList)
     },
     //级联选择器值发生改变时
     handleChange() {
@@ -210,7 +209,6 @@ export default {
         if (res.meta.status !== 200)
           return this.$message.error('获取静态属性列表失败')
         this.onlyTableData = res.data
-        console.log(this.onlyTableData)
       }
     },
     //处理图片预览效果,file是当前图片信息

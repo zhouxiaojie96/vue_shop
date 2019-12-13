@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-26 19:50:30
- * @LastEditTime: 2019-12-07 12:48:17
+ * @LastEditTime: 2019-12-12 14:20:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\power\Roles.vue
@@ -205,7 +205,6 @@ export default {
       const { data: res } = await this.$http.get('rights/tree')
       if (res.meta.status !== 200) return this.$message.error('获取失败！')
       this.rightslist = res.data
-      console.log(this.rightslist)
       this.getLeafKeys(role, this.defKeys) //递归获取三级节点的id。
       this.setRightDialogVisible = true
     },

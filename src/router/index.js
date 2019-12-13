@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-12-11 22:30:45
+ * @LastEditTime: 2019-12-12 12:26:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
@@ -47,7 +47,7 @@ const router = new VueRouter({
   routes
 })
 
-//挂载路由导航守卫：
+//挂载路由导航守卫，需要在 router 页面中的 export default router 之前配置：
 //to 将要访问的路径
 //from 代表从哪个路径跳转而来
 //next 是一个函数，表示放行   next() 表示放行   nest('/login') 强制跳转

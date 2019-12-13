@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-25 14:54:37
- * @LastEditTime: 2019-12-07 12:48:46
+ * @LastEditTime: 2019-12-12 14:21:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\user\Users.vue
@@ -259,13 +259,11 @@ export default {
     //监听pagesize改变的事件
     //这个触发的时机是只要切换了“每页显示多少条”的菜单就会执行这个函数，可以拿到最新的pagesize。
     handleSizeChange(newSize) {
-      console.log('最新的每页显示多少条 也就是 pagesize：' + newSize)
       this.queryInfo.pagesize = newSize
       this.getUserList()
     },
     //监听 页码值 改变
     handleCurrentChange(newPage) {
-      console.log('拿到最新的当前是第几页 也就是 newPage：' + newPage)
       this.queryInfo.pagenum = newPage
       this.getUserList()
     },

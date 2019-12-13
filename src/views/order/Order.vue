@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-11 17:19:51
- * @LastEditTime: 2019-12-11 22:14:06
+ * @LastEditTime: 2019-12-12 14:19:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\order\Order.vue
@@ -154,7 +154,6 @@ export default {
       if (res.meta.status !== 200)
         return this.$message.error('获取物流信息失败')
       this.progresInfo = res.data
-      console.log(this.progresInfo)
     }
   },
   created() {

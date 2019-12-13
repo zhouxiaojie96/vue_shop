@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-06 14:15:25
- * @LastEditTime: 2019-12-10 21:02:38
+ * @LastEditTime: 2019-12-12 14:19:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\views\goods\Params.vue
@@ -194,7 +194,6 @@ export default {
       } else {
         this.onlyTableData = res.data
       }
-      console.log(res.data)
     },
     //当级联选择器内容发生改变时
     handleChange() {
