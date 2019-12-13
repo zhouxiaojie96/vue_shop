@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-12-12 18:34:44
+ * @LastEditTime: 2019-12-13 09:23:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\main.js
@@ -40,7 +40,7 @@ import NProgress from 'nprogress'
 
 //使用axios配置方法
 import axios from 'axios'
-import { Tree } from 'element-ui'
+// import { Tree } from 'element-ui'
 axios.defaults.baseURL = "http://127.0.0.1:8888/api/private/v1/" //全局配置发起请求的根路径
 //请求拦截器
 axios.interceptors.request.use(config => {
