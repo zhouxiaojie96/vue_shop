@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 19:36:15
- * @LastEditTime: 2019-12-13 09:14:28
+ * @LastEditTime: 2019-12-14 11:11:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\vue.config.js
@@ -39,10 +39,10 @@ module.exports = {
       //通过 config.plugin() 函数找到html插件，通过 .tap 这个链式操作来修改这个插件里面的一些相关参数，里面是一个回调函数，
       //args 就是当前插件的里面的一些参数项，然后为 args 新增一个参数 通过 args[0] 为它追加一个自定义参数 isProd，然后再把这个参数 return 出去。//然后在首页中根据 isProd 的值来决定标题的名称。
       //htmlWebpackPlugin 是这个插件的具体名称，htmlWebpackPlugin.options 是所有的参数项，然后在页面上通过 .isProd 拿到 isProd 参数 。
-      // config.plugin('html').tap(args =>{
-      //   args[0].isProd = true
-      //   return args
-      // })
+      config.plugin('html').tap(args =>{
+        args[0].isProd = true
+        return args
+      })
     })
 
     
@@ -50,10 +50,10 @@ module.exports = {
     config.when(process.env.NODE_ENV === 'development', config => {
       config.entry('app').clear().add('./src/main-dev.js')
       //自定义首页内容
-      // config.plugin('html').tap(args =>{
-      //   args[0].isProd = false
-      //   return args
-      // })
+      config.plugin('html').tap(args =>{
+        args[0].isProd = false
+        return args
+      })
     })
   }
 }
