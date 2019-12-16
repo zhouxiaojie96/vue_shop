@@ -1,19 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 19:36:15
- * @LastEditTime: 2019-12-14 11:11:12
+ * @LastEditTime: 2019-12-16 10:59:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\vue.config.js
  */
+
 module.exports = {
   devServer: {
     //自动打开浏览器
     open: true
-  }
-}
+  },
 
-module.exports = {
   //注意：代码中的 add 方法里的路径是项目 src 文件下的 main.js，是把 main.js 复制出两份名字不同的文件。
   //生成一个配置节点，指向的值是function处理函数，通过config接受默认的webpack配置对象
   chainWebpack: config => {

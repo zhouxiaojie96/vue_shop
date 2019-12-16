@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-20 11:22:45
- * @LastEditTime: 2019-12-12 14:48:17
+ * @LastEditTime: 2019-12-14 11:50:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\babel.config.js
@@ -27,7 +27,8 @@ module.exports = {
       }
     ],
     //发布产品时候的插件数组
-    ...prodPlugins//... 是展开运算符，是把 数组中的每一项都展开了放到另一个数组中
+    ...prodPlugins,//... 是展开运算符，是把 数组中的每一项都展开了放到另一个数组中
+    "@babel/plugin-syntax-dynamic-import",//路由懒加载配置
   ]
 
 }
