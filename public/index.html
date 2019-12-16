@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-13 09:42:11
- * @LastEditTime: 2019-12-14 10:12:52
+ * @LastEditTime: 2019-12-16 11:49:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\public\index.html
@@ -35,10 +35,9 @@
     <!-- built files will be auto injected -->
     <!-- CDN 引入也要判断一下，如果是发布阶段就是以 CDN方式引入，如果不是就不用 CDN方式引入 -->
     <% if(htmlWebpackPlugin.options.isProd) { %>
-      <!-- element-ui 的 js 文件 -->
-      <script src="https://cdn.staticfile.org/element-ui/2.8.2/index.js"></script>
       <!-- 其他 -->
       <script src="https://cdn.staticfile.org/vue/2.5.22/vue.min.js"></script>
+      <script src="https://cdn.staticfile.org/element-ui/2.8.2/index.js"></script>
       <script src="https://cdn.staticfile.org/vue-router/3.0.1/vue-router.min.js"></script>
       <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
       <script src="https://cdn.staticfile.org/lodash.js/4.17.11/lodash.min.js"></script>
